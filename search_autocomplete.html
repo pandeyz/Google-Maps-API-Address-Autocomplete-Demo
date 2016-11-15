@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place Autocomplete Hotel Search</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<div id="locationField">
+  <input id="autocomplete" placeholder="Enter a city" type="text" />
+</div>
+
+</body>
+
+<script>
+
+var map, places;
+var autocomplete;
+var countryRestrict = {'country': 'in'};
+var MARKER_PATH = 'https://maps.gstatic.com/intl/en_us/mapfiles/marker_green';
+var hostnameRegexp = new RegExp('^https?://.+?/');
+
+
+function initMap() {
+    // Create the autocomplete object and associate it with the UI input control.
+    // Restrict the search to the default country, and to place type "cities".
+    autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')), {
+        types: ['(regions)'],
+        componentRestrictions: countryRestrict
+    });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU6bsx-PLT5fW02T5GeiwA8cOOY7l2rU4&signed_in=true&libraries=places&callback=initMap"
+async defer></script>
+
+</html>
